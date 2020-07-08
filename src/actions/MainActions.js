@@ -4,7 +4,7 @@ import {
   FETCH_ALL_CARDS_FAIL,
 } from './types';
 import axios from 'axios';
-import {BASE_URL, headers} from '../constants/api';
+import {BASE_URL, headers} from '../constants';
 
 export const fetchAllCards = () => async dispatch => {
   dispatch({type: FETCH_ALL_CARDS});
