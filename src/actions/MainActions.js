@@ -34,7 +34,7 @@ export const fetchAllMechanics = () => async dispatch => {
               });
               mechanicIndex++;
             } else {
-              const alreadyAddedId = filterOld['id'];
+              const alreadyAddedId = filterOld[0]['id'];
               cardsByMechanics.push({
                 mechanicId: alreadyAddedId,
                 ...rawData[property][i],

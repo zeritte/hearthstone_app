@@ -1,10 +1,16 @@
 import * as React from 'react';
-import {View, Text, FlatList, ActivityIndicator} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  TouchableOpacity,
+} from 'react-native';
 
 import {useSelector, useDispatch} from 'react-redux';
 import {fetchAllMechanics} from '../actions';
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   const {mechanicsLoading, mechanics, mechanicsError} = useSelector(
     state => state.main,
   );
@@ -20,7 +26,13 @@ export default function HomeScreen() {
   };
 
   const renderItem = ({item, index}) => {
-    return <Text>{item.name}</Text>;
+    return (
+      <TouchableOpacity
+        style={{margin: 10}}
+        onPress={() => navigation.navigate('Mechanic', {mechanicId: item.id})}>
+        <Text style={{fontSize: 18}}>{item.name}</Text>
+      </TouchableOpacity>
+    );
   };
 
   return (
