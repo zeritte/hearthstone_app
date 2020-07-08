@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import {useSelector, useDispatch} from 'react-redux';
-import {fetchAllMechanics} from '../actions';
+import {fetchAllCards} from '../actions';
 
 export default function HomeScreen({navigation}) {
   const {mechanicsLoading, mechanics, mechanicsError} = useSelector(
@@ -17,7 +17,7 @@ export default function HomeScreen({navigation}) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(fetchAllMechanics());
+    dispatch(fetchAllCards());
   }, []);
 
   const emptyComponent = () => {

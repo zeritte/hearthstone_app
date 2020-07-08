@@ -2,11 +2,16 @@ import {
   FETCH_ALL_MECHANICS,
   FETCH_ALL_MECHANICS_SUCCESS,
   FETCH_ALL_MECHANICS_FAIL,
+  SEARCH_CARD,
+  SEARCH_CARD_SUCCESS,
+  SEARCH_CARD_FAIL,
+  SET_LATEST_SEARCHED_TEXT,
+  SET_SEARCH_TEXT_TO_NULL,
 } from './types';
 import axios from 'axios';
-import {BASE_URL, headers} from '../constants';
+import {BASE_URL, headers, searchHeaders} from '../constants';
 
-export const fetchAllMechanics = () => async dispatch => {
+export const fetchAllCards = () => async dispatch => {
   dispatch({type: FETCH_ALL_MECHANICS});
   try {
     const {data: rawData} = await axios.get(BASE_URL + 'cards', {headers});
@@ -55,3 +60,25 @@ export const fetchAllMechanics = () => async dispatch => {
     });
   }
 };
+
+export const searchByCardName = name => async (dispatch, getState) => {
+  dispatch({type: SEARCH_CARD});
+  try {
+    dispatch({type: SET_LATEST_SEARCHED_TEXT, payload: name});
+    const {data} = await axios.get(BASE_URL + 'cards/search/' + name, {
+      headers: searchHeaders,
+    });
+    const {latestSearchText} = getState().main;
+    if (latestSearchText === name) {
+      dispatch({type: SEARCH_CARD_SUCCESS, payload: {data, text: name}});
+    }
+  } catch (e) {
+    dispatch({
+      type: SEARCH_CARD_FAIL,
+      payload: 'No results',
+    });
+  }
+};
+
+export const setSearchTextToNull = () => dispatch =>
+  dispatch({type: SET_SEARCH_TEXT_TO_NULL});
