@@ -1,3 +1,3 @@
-export const FETCH_ALL_CARDS = 'fetch_all_cards';
-export const FETCH_ALL_CARDS_SUCCESS = 'fetch_all_cards_success';
-export const FETCH_ALL_CARDS_FAIL = 'fetch_all_cards_fail';
+export const FETCH_ALL_MECHANICS = 'fetch_all_mechanics';
+export const FETCH_ALL_MECHANICS_SUCCESS = 'fetch_all_mechanics_success';
+export const FETCH_ALL_MECHANICS_FAIL = 'fetch_all_mechanics_fail';
