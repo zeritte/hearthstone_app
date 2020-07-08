@@ -5,4 +5,4 @@ export const SEARCH_CARD = 'search_card';
 export const SEARCH_CARD_SUCCESS = 'search_card_success';
 export const SEARCH_CARD_FAIL = 'search_card_fail';
 export const SET_LATEST_SEARCHED_TEXT = 'set_latest_searched_text';
-export const SET_SEARCH_TEXT_TO_NULL = 'set_search_text_to_null';
+export const SET_SEARCH_TO_NULL = 'set_search_TO_NULL';

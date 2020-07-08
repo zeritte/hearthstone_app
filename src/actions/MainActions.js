@@ -6,7 +6,7 @@ import {
   SEARCH_CARD_SUCCESS,
   SEARCH_CARD_FAIL,
   SET_LATEST_SEARCHED_TEXT,
-  SET_SEARCH_TEXT_TO_NULL,
+  SET_SEARCH_TO_NULL,
 } from './types';
 import axios from 'axios';
 import {BASE_URL, headers, searchHeaders} from '../constants';
@@ -80,5 +80,5 @@ export const searchByCardName = name => async (dispatch, getState) => {
   }
 };
 
-export const setSearchTextToNull = () => dispatch =>
-  dispatch({type: SET_SEARCH_TEXT_TO_NULL});
+export const setSearchToNull = () => dispatch =>
+  dispatch({type: SET_SEARCH_TO_NULL});

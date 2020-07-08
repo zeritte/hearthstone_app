@@ -6,7 +6,7 @@ import {
   SEARCH_CARD_SUCCESS,
   SEARCH_CARD_FAIL,
   SET_LATEST_SEARCHED_TEXT,
-  SET_SEARCH_TEXT_TO_NULL,
+  SET_SEARCH_TO_NULL,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -62,7 +62,7 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, searchLoading: false, searchError: action.payload};
     case SET_LATEST_SEARCHED_TEXT:
       return {...state, latestSearchText: action.payload};
-    case SET_SEARCH_TEXT_TO_NULL:
+    case SET_SEARCH_TO_NULL:
       return {
         ...state,
         searchText: null,

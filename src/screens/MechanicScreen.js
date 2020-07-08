@@ -12,12 +12,12 @@ export default function MechanicScreen({route}) {
   }, [cardsByMechanics, mechanicId]);
 
   const renderItem = ({item, index}) => {
-    return <Text>{item.name} {item.cardId}</Text>;
     return <Card data={item} />;
   };
 
   return (
     <FlatList
+      style={{flex: 1, width: '90%', alignSelf: 'center'}}
       data={cardsToBeRendered}
       renderItem={renderItem}
       keyExtractor={item => item.cardId}
