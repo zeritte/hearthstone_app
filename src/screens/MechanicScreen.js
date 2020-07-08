@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {FlatList, Text, Image} from 'react-native';
+import {FlatList} from 'react-native';
 import {Card} from '../components';
 
 import {useSelector} from 'react-redux';
