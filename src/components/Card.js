@@ -12,7 +12,7 @@ export const Card = ({data}) => {
 
   const transformBack = animatedValue.interpolate({
     inputRange: [0, 180],
-    outputRange: ['180deg', '360deg'],
+    outputRange: ['180deg', '0deg'],
   });
 
   const flip = () => {
