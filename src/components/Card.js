@@ -17,9 +17,8 @@ export const Card = ({data}) => {
 
   const flip = () => {
     count++;
-    console.log('flip -> count', count % 2);
     Animated.spring(animatedValue, {
-      toValue: count % 2 === 0 ? 0 : 180,
+      toValue: count % 2 ? 180 : 0,
       useNativeDriver: true,
     }).start();
   };
@@ -66,6 +65,7 @@ export const Card = ({data}) => {
         style={{
           position: 'absolute',
           top: 0,
+          opacity: animatedValue,
           transform: [
             {
               rotateY: transformBack,
